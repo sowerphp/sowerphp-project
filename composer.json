@@ -1,0 +1,32 @@
+{
+    "name": "sowerphp/sowerphp-project",
+    "description": "Esqueleto de proyecto usando el framework SowerPHP.",
+    "type": "project",
+    "keywords": ["sowerphp", "project"],
+    "homepage": "https://www.sowerphp.org",
+    "license": "AGPL-3.0+",
+    "authors": [
+        {
+            "name": "SowerPHP",
+            "homepage": "https://www.sowerphp.org"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/sowerphp/sowerphp-project/issues",
+        "source": "https://github.com/sowerphp/sowerphp-project"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    },
+    "require": {
+        "sowerphp/sowerphp-framework": "dev-master || dev-main"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../sowerphp-framework"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

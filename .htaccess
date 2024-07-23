@@ -1,0 +1,15 @@
+#
+# SowerPHP: Framework PHP hecho en Chile.
+# Copyright (C) SowerPHP <https://www.sowerphp.org>
+#
+
+# Habilitar la reescritura de URL
+RewriteEngine On
+
+# Redirigir las solicitudes de archivos estáticos a /storage/static/
+RewriteCond %{REQUEST_URI} /static/
+RewriteRule ^static/(.*)$ storage/static/$1 [L]
+
+# Redirigir las solicitudes al subdirectorio /public
+RewriteCond %{REQUEST_URI} !/storage/static/
+RewriteRule ^(.*)$ public/$1 [L]
