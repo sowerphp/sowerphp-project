@@ -12,6 +12,37 @@ cd my-project
 cp env-dist .env
 ```
 
+Ejemplos
+--------
+
+### Crear controlador
+
+Crear archivo `src/app/Controller/Test.php` con el siguiente contenido:
+
+```php
+<?php
+
+namespace app;
+
+use \sowerphp\core\Controller;
+use \sowerphp\core\Network_Request as Request;
+
+class Controller_Test extends Controller
+{
+
+    public function boot(): void
+    {
+        app('auth')->allowActionsWithoutLogin('*');
+    }
+
+    public function action(Request $request, ...$args)
+    {
+        dd($request, $args);
+    }
+
+}
+```
+
 Licencia
 --------
 
