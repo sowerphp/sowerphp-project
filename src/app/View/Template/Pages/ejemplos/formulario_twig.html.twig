@@ -1,0 +1,83 @@
+{% extends "View/Layout/" ~ __view_layout ~ ".html.twig" %}
+
+{% block content %}
+
+<h1 class="mb-4">{% block title %}Ejemplo de formulario con diferentes widgets usando Twig{% endblock %}</h1>
+<p>Este formulario se genera sin el uso de una clase de formulario. Los datos son pasados a las funciones de Twig directamente.</p>
+
+{{ form_start({
+    attributes: {
+        action: 'formulario_twig?submit=1',
+        onsubmit: 'return __.confirm(this, \'¿Deseas enviar el formulario?\')',
+    },
+}) }}
+    {{ form_row({
+        widget: 'default',
+        name: 'widget_default',
+        label: 'Default',
+    }) }}
+    {{ form_row({
+        widget: {
+            name: 'default',
+            value: 'Hola Mundo',
+            attributes: {
+                placeholder: 'Placeholder por defecto',
+                class: 'form-control',
+            }
+        },
+        name: 'widget_default_attributes',
+        label: 'Default Attributes',
+        help_text: 'El valor puede ir en el widget o en el atributo (este último tiene preferencia).'
+    }) }}
+    {{ form_row({
+        input_type: 'password',
+        name: 'input_type_password',
+        label: 'Input Type Password'
+    }) }}
+    {{ form_row({
+        widget: 'password',
+        name: 'widget_password_1',
+        label: 'Widget Password 1'
+    }) }}
+    {{ form_row({
+        widget: {
+            name: 'password'
+        },
+        name: 'widget_password_2',
+        label: 'Widget Password 2'
+    }) }}
+    {{ form_row({
+        widget: 'date',
+        name: 'widget_date',
+        label: 'Date'
+    }) }}
+    {{ form_row({
+        widget: 'datetime-local',
+        name: 'widget_datetime',
+        label: 'Datetime'
+    }) }}
+    {{ form_row({
+        widget: {
+            name: 'textarea',
+            attributes: {
+                rows: 3,
+                class: 'form-control'
+            },
+        },
+        name: 'widget_textarea',
+        label: 'Textarea'
+    }) }}
+    {{ form_row({
+        widget: 'select',
+        name: 'widget_select',
+        select: 'Select'
+    }) }}
+    {{ form_csrf({
+        csrf_token: 'abc123'
+    }) }}
+    {{ form_submit('Enviar formulario', {
+        class: 'btn btn-secondary'
+    }) }}
+{{ form_end({}) }}
+
+{% endblock %}

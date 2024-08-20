@@ -1,7 +1,7 @@
 <?php
 
 /**
- * SowerPHP: Framework PHP hecho en Chile.
+ * SowerPHP: Simple and Open Web Ecosystem Reimagined for PHP.
  * Copyright (C) SowerPHP <https://www.sowerphp.org>
  *
  * Este programa es software libre: usted puede redistribuirlo y/o
@@ -56,9 +56,9 @@ return [
             'dsn' => env('MESSENGER_REDIS_DSN', 'redis://host.docker.internal:6379'),
         ],
 
-        'gearman' => [
+        /*'gearman' => [
             'dsn' => env('MESSENGER_GEARMAN_DSN', 'gearman://host.docker.internal:4730'),
-        ],
+        ],*/
 
     ],
 
