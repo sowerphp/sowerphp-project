@@ -1,0 +1,134 @@
+{% extends "View/Layout/" ~ __view_layout ~ ".html.twig" %}
+
+{% block content %}
+
+<h1 class="mb-4">{% block title %}Ejemplo de formulario con layout y pestañas usando Twig{% endblock %}</h1>
+<p>Este formulario se genera sin el uso de una clase de formulario. Los datos son pasados a las funciones de Twig directamente.</p>
+
+{{ form_start({
+    attributes: {
+        action: 'layout-sections?submit=1',
+        onsubmit: 'return __.confirm(this, \'¿Deseas enviar el formulario?\')',
+    },
+}) }}
+    {{ form_fields({
+        fields: {
+            nombre: {
+                name: 'nombre',
+                label: 'Nombre',
+                widget: {
+                    name: 'text',
+                    attributes: {
+                        class: 'form-control',
+                    },
+                }
+            },
+            usuario: {
+                name: 'usuario',
+                label: 'Usuario',
+                widget: {
+                    name: 'text',
+                    attributes: {
+                        class: 'form-control',
+                    },
+                }
+            },
+            contrasenia: {
+                name: 'contrasenia',
+                label: 'Contraseña',
+                widget: {
+                    name: 'password',
+                    attributes: {
+                        class: 'form-control',
+                    },
+                }
+            },
+            direccion: {
+                name: 'direccion',
+                label: 'Dirección',
+                widget: {
+                    name: 'text',
+                    attributes: {
+                        class: 'form-control',
+                    },
+                }
+            },
+            comuna: {
+                name: 'comuna',
+                label: 'Comuna',
+                widget: {
+                    name: 'text',
+                    attributes: {
+                        class: 'form-control',
+                    },
+                }
+            },
+            fecha_nacimiento: {
+                name: 'fecha_nacimiento',
+                label: 'Fecha de nacimiento',
+                widget: {
+                    name: 'date',
+                    attributes: {
+                        class: 'form-control',
+                    },
+                }
+            },
+            telefono: {
+                name: 'telefono',
+                label: 'Teléfono',
+                widget: {
+                    name: 'telephone',
+                    attributes: {
+                        class: 'form-control',
+                    },
+                }
+            },
+        },
+    }, {
+        layout: {
+            tabs: [
+                {
+                    id: 'perfil',
+                    title: 'Perfil',
+                    icon: 'fa-solid fa-user',
+                    sections: [
+                        {
+                            title: 'Datos Básicos',
+                            icon: 'fa-solid fa-vcard',
+                            rows: [
+                                ['nombre', 'usuario', 'contrasenia'],
+                            ]
+                        },
+                        {
+                            title: 'Datos Personales',
+                            icon: 'fa-solid fa-user',
+                            rows: [
+                                ['fecha_nacimiento', 'telefono'],
+                            ]
+                        },
+                    ]
+                },
+                {
+                    id: 'ubicacion',
+                    title: 'Ubicación',
+                    icon: 'fa-solid fa-map',
+                    sections: [
+                        {
+                            title: 'Ubicación',
+                            icon: 'fa-solid fa-map',
+                            rows: [
+                                ['direccion', 'comuna'],
+                            ]
+                        },
+                    ]
+                },
+            ]
+        }
+    }) }}
+    {{ form_csrf({
+        csrf_token: 'abc123'
+    }) }}
+    {{ form_submit('Enviar formulario') }}
+{{ form_end({}) }}
+
+{% endblock %}

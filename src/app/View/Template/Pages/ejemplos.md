@@ -8,4 +8,7 @@ Bienvenido a los ejemplos de SowerPHP. Aquí encontrarás ejemplos funcionales (
 
 ## Índice de Contenidos
 
-1. [Formulario con diferentes widgets usando Twig](ejemplos/formulario_twig)
+1. Formularios.
+   1. [Formulario con diferentes widgets usando Twig](ejemplos/formularios/twig/widgets)
+   2. [Formulario con layout y secciones usando Twig](ejemplos/formularios/twig/layout-sections)
+   3. [Formulario con layout y pestañas usando Twig](ejemplos/formularios/twig/layout-tabs)
