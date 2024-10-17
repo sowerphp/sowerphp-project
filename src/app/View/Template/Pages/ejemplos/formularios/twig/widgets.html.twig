@@ -12,183 +12,156 @@
     },
 }) }}
     {{ form_row({
-        widget: {
-            name: 'div',
-        },
+        widget: 'div',
         name: 'widget_div',
-        label: 'div',
+        label: 'Div',
+        value: 'Contenido dentro de un tag div.',
     }) }}
     {{ form_row({
-        widget: {
-            name: 'default',
-            class: 'form-control',
-        },
         name: 'widget_default',
         label: 'Default',
     }) }}
     {{ form_row({
         widget: {
-            name: 'default',
-            value: 'Hola Mundo',
+            value: 'Hola Mundo Widget',
             attributes: {
                 placeholder: 'Placeholder por defecto',
-                class: 'form-control',
+                value: 'Hola Mundo Atributo',
             }
         },
+        value: 'Hola Mundo Field',
         name: 'widget_default_attributes',
         label: 'Default Attributes',
-        help_text: 'El valor puede ir en el widget o en el atributo (este último tiene preferencia).'
+        help_text: 'El valor puede ir en el campo, widget o en el atributo (de menos a más prioridad)).',
     }) }}
     {{ form_row({
         input_type: 'password',
         name: 'input_type_password',
-        label: 'Input Type Password'
+        label: 'Input Type Password',
     }) }}
     {{ form_row({
         widget: {
             name: 'password',
             attributes: {
-                id: 'password_1',
-                placeholder: 'Contraseña',
-                class: 'form-control',
+                placeholder: 'Ingresa tu nueva contraseña',
             }
         },
         name: 'widget_password_1',
         label: 'Widget Password 1',
-        help_text: 'Contraseña 1'
+        help_text: 'Contraseña 1.',
     }) }}
     {{ form_row({
         widget: {
             name: 'password',
             attributes: {
-                id: 'password_2',
-                placeholder: 'Contraseña 2',
+                placeholder: 'Repetir contraseña',
                 class: 'check notempty form-control',
             },
         },
         name: 'widget_password_2',
-        label: 'Widget Password 2'
+        label: 'Widget Password 2',
+        help_text: 'Contraseña 2.',
     }) }}
     {{ form_row({
         widget: 'date',
         name: 'widget_date',
-        label: 'Date'
+        label: 'Date',
     }) }}
     {{ form_row({
-        widget: {
-            name: 'datetime-local',
-        },
+        widget: 'datetime',
         name: 'widget_datetime',
-        label: 'Datetime'
+        label: 'Datetime',
     }) }}
     {{ form_row({
         widget: {
             name: 'textarea',
             attributes: {
                 rows: 3,
-                class: 'form-control'
             },
         },
         name: 'widget_textarea',
-        label: 'Textarea'
+        label: 'Textarea',
     }) }}
     {{ form_row({
-        widget: {
-            name: 'hidden',
-        },
+        widget: 'hidden',
         name: 'widget_hidden',
-        label: 'Hidden'
+        label: 'Hidden',
     }) }}
     {{ form_row({
-        widget: {
-            name: 'button',
-            value: '<i class="fa fa-check"></i> Submit',
-            attributes: {
-                id: 'btn-test',
-            },
-        },
+        widget: 'button',
         name: 'widget_button',
         label: 'Button',
+        value: '<i class="fa fa-check"></i> Submit',
         help_text: 'Botón tipo button por defecto.',
     }) }}
     {{ form_row({
-        widget: {
-            name: 'bool',
-            value: ['No', 'Si'],
-            attributes: {
-                id: 'bool_test',
-                class: 'form-control',
-            },
-        },
+        widget: 'bool',
         name: 'widget_bool',
         label: 'Bool',
-        help_text: 'Por defecto es 0: No, 1: Yes'
+        help_text: 'Por defecto es 0: No, 1: Si',
     }) }}
     {{ form_row({
-        widget: {
-            name: 'select',
-            value: [
-                {
-                    value: 'option1',
-                    label: 'Opción 1',
-                },
-                {
-                    value: 'option2',
-                    label: 'Opción 2',
-                    selected: True,
-                },
-                {
-                    value: 'option3',
-                    label: 'Opción 3',
-                },
-            ],
-            attributes: {
-                id: 'form_test',
-                class: 'form-control',
-                multiple: false,
-                required: true,
-            },
+        widget: 'select',
+        name: 'widget_select_1',
+        label: 'Select 1',
+        choices: {
+            option1: 'Opción 1',
+            option2: 'Opción 2',
+            option3: 'Opción 3',
         },
-        name: 'widget_select',
-        label: 'Select'
+        value: 'option2',
+        help_text: 'Select con opciones en arreglo asociativo value => label.',
+    }) }}
+    {{ form_row({
+        widget: 'select',
+        name: 'widget_select_2',
+        label: 'Select 2',
+        choices: [
+            {
+                value: 'option1',
+                label: 'Opción 1',
+            },
+            {
+                value: 'option2',
+                label: 'Opción 2',
+            },
+            {
+                value: 'option3',
+                label: 'Opción 3',
+            },
+        ],
+        value: 'option2',
+        help_text: 'Select con opciones con índices nombrados. Cualquier nombre es válido, el primero será el "value" y eñ segundo será el "label". De todas maneras se aconseja usar estos índices.',
+    }) }}
+    {{ form_row({
+        widget: 'select',
+        name: 'widget_select_3',
+        label: 'Select 3',
+        choices: [
+            ['option1', 'Opción 1'],
+            ['option2', 'Opción 2'],
+            ['option3', 'Opción 3'],
+        ],
+        value: 'option2',
+        help_text: 'Select con opciones en arreglo de arreglos con índices 0 para value y 1 para label.',
     }) }}
     {{ form_row({
         widget: {
             name: 'select',
-            value: [
-                {
-                    value: 'option1',
-                    label: 'Opción 1',
-                },
-                {
-                    value: 'option2',
-                    label: 'Opción 2',
-                    selected: True,
-                },
-                {
-                    value: 'option3',
-                    label: 'Opción 3',
-                },
-            ],
             attributes: {
-                id: 'select_multiple',
-                class: 'form-control',
                 multiple: true,
-                required: true,
             },
         },
         name: 'widget_select',
-        label: 'Select Multiple'
+        label: 'Select Multiple',
+        choices: {
+            option1: 'Opción 1',
+            option2: 'Opción 2',
+            option3: 'Opción 3',
+        },
     }) }}
     {{ form_row({
-        widget: {
-            name: 'checkbox',
-            value: 'Check',
-            attributes: {
-                name: 'Checkbox1',
-                id: 'checkbox',
-            },
-        },
+        widget: 'checkbox',
         name: 'widget_checkbox',
         label: 'Checkbox',
         help_text: 'Checkbox estándar.',
@@ -196,10 +169,7 @@
     {{ form_row({
         widget: {
             name: 'checkbox',
-            value: 'Checked',
             attributes: {
-                name: 'Checkbox 2',
-                id:'checkbox_checked',
                 checked: true,
             },
         },
@@ -208,217 +178,234 @@
         help_text: 'Checkbox seleccionado por defecto.',
     }) }}
     {{ form_row({
-        widget: {
-            name: 'checkboxes',
-            value: [
-                {
-                    id: 'cbox1',
-                    value: 'first_checkbox',
-                    label: 'Primer Checkbox',
-                },
-                {
-                    id: 'cbox2',
-                    value: 'second_checkbox',
-                    label: 'Segundo Checkbox',
-                },
-                {
-                    id: 'cbox3',
-                    value: 'third_checkbox',
-                    label: 'Tercer Checkbox',
-                    checked: true,
-                },
-            ],
-        },
+        widget: 'checkboxes',
         name: 'widget_checkbox',
         label: 'Checkboxes',
-        help_text: 'Checkboxes múltiples.',
+        choices: {
+            first_checkbox: 'Primer Checkbox',
+            second_checkbox: 'Segundo Checkbox',
+            third_checkbox: 'Tercer Checkbox',
+        },
+        value: ['first_checkbox', 'third_checkbox'],
+        help_text: 'Checkboxes múltiples ("choices" mismas reglas de "select").',
     }) }}
     {{ form_row({
-        widget: {
-            name: 'radio',
-            value: [
-                {
-                    value: 'first_radio',
-                    label: 'Primer radio',
-                },
-                {
-                    value: 'second_radio',
-                    label: 'Segundo radio',
-                },
-            ],
-            attributes: {
-                nombre: 'contacto',
-                class: 'form-control',
-            }
+        widget: 'radios',
+        name: 'widget_radios',
+        label: 'Radios',
+        choices: {
+            first_radio: 'Primer radio',
+            second_radio: 'Segundo radio',
         },
-        name: 'widget_radio',
-        label: 'Radio',
-        help_text: 'Radio estándar.',
+        help_text: 'Lista de radios estándar.',
+    }) }}
+    {{ form_row({
+        widget: 'file',
+        name: 'widget_file',
+        label: 'File',
+        help_text: 'Campo de archivo estándar.',
     }) }}
     {{ form_row({
         widget: {
             name: 'file',
             attributes: {
-                name: 'file_upload',
-                id: 'file_upload',
-                class: 'form-control',
                 multiple: true,
-                accept:'pdf',
-                required: true,
+                accept: '.pdf',
             }
         },
-        name: 'widget_file',
-        label: 'File'
+        name: 'widget_files_1',
+        label: 'Files 1',
+        help_text: 'Campo de archivo múltiple solo para PDF.',
     }) }}
     {{ form_row({
-        widget: {
-            name: 'table',
-            attributes: {
-                name: 'table_example',
-                id: 'table_1',
-                titles: [
-                    'Column 1',
-                    'Archivos',
-                    'Observaciones'
-                ],
-                inputs: [
-                    {
-                        name: 'password',
-                        value: 'default_password',
-                    },
-                    {
-                        name: 'file',
-                    },
-                    {
-                        name: 'text',
-                    },
-                ],
-                values: [
-                    ['Value 1-1', 'Value 1-2', 'Value 1-3'],
-                    ['Value 2-1', 'Value 2-2', 'Value 2-3'],
-                    ['Value 3-1', 'Value 3-2', 'Value 3-3']
-                ],
+        widget: 'files',
+        name: 'widget_files_2',
+        label: 'Files 2',
+        help_text: 'Campo de archivo múltiple en una tabla.',
+    }) }}
+    {{ form_row({
+        widget: 'table',
+        name: 'widget_table_static_1',
+        label: 'Table Static 1',
+        titles: [
+            'Texto',
+            'Contraseña',
+            'Archivo',
+        ],
+        fields: [
+            {
+                widget: 'text',
+                name: 'widget_table_static_1_text',
             },
-        },
-        name: 'widget_table',
-        label: 'Table Default'
-    }) }}
-    {{ form_row({
-        widget: {
-            name: 'table_js',
-            attributes: {
-                name: 'table_example',
-                id: 'table_2',
-                titles: [
-                    'Column 1',
-                    'Archivos',
-                    'Observaciones'
-                ],
-                inputs: [
-                    {
-                        name: 'password',
-                        value: 'default_password',
-                        attributes: {
-                            class: 'form-control',
-                        }
-                    },
-                    {
-                        name: 'file',
-                    },
-                    {
-                        name: 'text',
-                    },
-                ],
+            {
+                widget: 'password',
+                name: 'widget_table_static_1_password',
             },
-        },
-        name: 'widget_table_js',
-        label: 'Table JS'
-    }) }}
-    {{ form_row({
-        widget: {
-            name: 'files',
-            attributes: {
-                id: 'files',
-                label: 'Archivos',
-                class: 'form-control',
-                multiple: true,
-            }
-        },
-        name: 'widget_table_js',
-        label: 'Table Files'
-    }) }}
-    {{ form_row({
-        widget: {
-            name: 'table_check',
-            attributes: {
-                name: 'table_check',
-                id: 'table_3',
-                titles: ['ID', 'Name', 'Description'],
-                table: [
-                    {
-                        id: 1,
-                        name: 'Item 1',
-                        description: 'Description 1'
-                    },
-                    {
-                        id: 2,
-                        name: 'Item 2',
-                        description: 'Description 2'
-                    },
-                    {
-                        id: 3,
-                        name: 'Item 3',
-                        description: 'Description 3'
-                    },
-                    {
-                        id: 4,
-                        name: 'Item 4',
-                        description : 'Description Test',
-                    }
-                ]
+            {
+                widget: 'file',
+                name: 'widget_table_static_1_file',
             },
-        },
-        name: 'widget_table_check',
-        label: 'Table Check'
+        ],
+        help_text: 'Tabla estática (sin filas dinámicas con javascript), sin valores por defecto.',
     }) }}
     {{ form_row({
-        widget: {
-            name: 'table_radio',
-            attributes: {
-                name: 'table_radio',
-                id: 'table_4',
-                titles: ['Name', 'Description', 'Option 1', 'Option 2', 'Option 3'],
-                options: {
-                    'option_1': 'Option 1',
-                    'option_2': 'Option 2',
-                    'option_3': 'Option 3'
-                },
-                table: [
-                    {
-                        name: 'Item 1',
-                        description: 'Description 1'
-                    },
-                    {
-                        name: 'Item 2',
-                        description: 'Description 2'
-                    },
-                    {
-                        name: 'Item 3',
-                        description: 'Description 3'
-                    },
-                    {
-                        name: 'Item 4',
-                        description : 'Description Test'
-                    }
-                ],
-                width: '100%'
-            }
+        widget: 'table',
+        name: 'widget_table_static_2',
+        label: 'Table Static 2',
+        titles: [
+            'Texto',
+            'Contraseña',
+            'Archivo',
+        ],
+        fields: [
+            {
+                widget: 'text',
+                name: 'widget_table_static_2_text',
+            },
+            {
+                widget: 'password',
+                name: 'widget_table_static_2_password',
+            },
+            {
+                widget: 'file',
+                name: 'widget_table_static_2_file',
+            },
+        ],
+        values: [
+            ['Hola Mundo', 'Pass123', null],
+            ['Chao Mundo', 'PassABC', null],
+        ],
+        help_text: 'Tabla estática (sin filas dinámicas), con valores por defecto.',
+    }) }}
+    {{ form_row({
+        widget: 'table_dynamic',
+        name: 'widget_table_dynamic_1',
+        label: 'Table Dynamic 1',
+        titles: [
+            'Texto',
+            'Contraseña',
+            'Archivo',
+        ],
+        fields: [
+            {
+                widget: 'text',
+                name: 'widget_table_dynamic_1_text',
+            },
+            {
+                widget: 'password',
+                name: 'widget_table_dynamic_1_password',
+            },
+            {
+                widget: 'file',
+                name: 'widget_table_dynamic_1_file',
+            },
+        ],
+        help_text: 'Tabla dinámica, sin valores por defecto.',
+    }) }}
+    {{ form_row({
+        widget: 'table_dynamic',
+        name: 'widget_table_dynamic_2',
+        label: 'Table Dynamic 2',
+        titles: [
+            'Texto',
+            'Contraseña',
+            'Archivo',
+        ],
+        fields: [
+            {
+                widget: 'text',
+                name: 'widget_table_dynamic_2_text',
+            },
+            {
+                widget: 'password',
+                name: 'widget_table_dynamic_2_password',
+            },
+            {
+                widget: 'file',
+                name: 'widget_table_dynamic_2_file',
+            },
+        ],
+        values: [
+            ['Hola Mundo', 'Pass123', null],
+            ['Chao Mundo', 'PassABC', null],
+            ['Fin del Mundo', 'Pass666', null],
+        ],
+        help_text: 'Tabla dinámica, con valores por defecto.',
+    }) }}
+    {{ form_row({
+        widget: 'table_checkboxes',
+        name: 'widget_table_checkboxes',
+        label: 'Table Checkboxes',
+        titles: [
+            'ID',
+            'Name',
+            'Description',
+        ],
+        rows: [
+            {
+                id: 1,
+                name: 'Item 1',
+                description: 'Description 1',
+            },
+            {
+                id: 2,
+                name: 'Item 2',
+                description: 'Description 2',
+            },
+            {
+                id: 3,
+                name: 'Item 3',
+                description: 'Description 3',
+            },
+            {
+                id: 4,
+                name: 'Item 4',
+                description : 'Description 4',
+            },
+        ],
+    }) }}
+    {{ form_row({
+        widget: 'table_radios',
+        name: 'widget_table_radios',
+        label: 'Table Radios',
+        titles: [
+            'ID',
+            'Name',
+            'Description',
+            'Option 1',
+            'Option 2',
+            'Option 3',
+        ],
+        options: {
+            'option_1': 'Option 1',
+            'option_2': 'Option 2',
+            'option_3': 'Option 3',
         },
-        name: 'widget_table_radio',
-        label: 'Table Radio'
+        rows: [
+            {
+                id: 1,
+                name: 'Item 1',
+                description: 'Description 1',
+            },
+            {
+                id: 2,
+                name: 'Item 2',
+                description: 'Description 2',
+            },
+            {
+                id: 3,
+                name: 'Item 3',
+                description: 'Description 3',
+            },
+            {
+                id: 4,
+                name: 'Item 4',
+                description : 'Description 4',
+            },
+        ],
     }) }}
     {{ form_csrf({
-        csrf_token: 'abc123'
+        csrf_token: 'abc123',
     }) }}
     {{ form_submit('Enviar formulario', {
         class: 'btn btn-primary w-100',
