@@ -7,81 +7,53 @@
 
 {{ form_start({
     attributes: {
-        action: 'layout-sections?submit=1',
+        action: 'layout-tabs?submit=1',
         onsubmit: 'return __.confirm(this, \'¿Deseas enviar el formulario?\')',
     },
 }) }}
     {{ form_fields({
         fields: {
             nombre: {
+                widget: 'text',
                 name: 'nombre',
                 label: 'Nombre',
-                widget: {
-                    name: 'text',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
+                prepend: '<span class="input-group-text"><i class="fa-solid fa-vcard"></i></span>',
             },
             usuario: {
+                widget: 'text',
                 name: 'usuario',
                 label: 'Usuario',
-                widget: {
-                    name: 'text',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
+                prepend: '<span class="input-group-text"><i class="fa-solid fa-user"></i></span>',
             },
             contrasenia: {
+                widget: 'password',
                 name: 'contrasenia',
                 label: 'Contraseña',
-                widget: {
-                    name: 'password',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
+                prepend: '<span class="input-group-text"><i class="fa-solid fa-key"></i></span>',
             },
             direccion: {
+                widget: 'text',
                 name: 'direccion',
                 label: 'Dirección',
-                widget: {
-                    name: 'text',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
+                prepend: '<span class="input-group-text"><i class="fa-solid fa-map-pin"></i></span>',
             },
             comuna: {
+                widget: 'text',
                 name: 'comuna',
                 label: 'Comuna',
-                widget: {
-                    name: 'text',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
+                prepend: '<span class="input-group-text"><i class="fa-solid fa-map"></i></span>',
             },
             fecha_nacimiento: {
+                widget: 'date',
                 name: 'fecha_nacimiento',
                 label: 'Fecha de nacimiento',
-                widget: {
-                    name: 'date',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
+                prepend: '<span class="input-group-text"><i class="fa-solid fa-calendar-alt"></i></span>',
             },
             telefono: {
+                widget: 'telephone',
                 name: 'telefono',
                 label: 'Teléfono',
-                widget: {
-                    name: 'telephone',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
+                prepend: '<span class="input-group-text"><i class="fa-solid fa-phone"></i></span>',
             },
         },
     }, {

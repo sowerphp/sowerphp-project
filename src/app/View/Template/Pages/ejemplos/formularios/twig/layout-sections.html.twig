@@ -14,54 +14,29 @@
     {{ form_fields({
         fields: {
             nombre: {
+                widget: 'text',
                 name: 'nombre',
                 label: 'Nombre',
-                widget: {
-                    name: 'text',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
             },
             usuario: {
+                widget: 'text',
                 name: 'usuario',
                 label: 'Usuario',
-                widget: {
-                    name: 'text',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
             },
             contrasenia: {
+                widget: 'password',
                 name: 'contrasenia',
                 label: 'Contraseña',
-                widget: {
-                    name: 'text',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
             },
             direccion: {
+                widget: 'text',
                 name: 'direccion',
                 label: 'Dirección',
-                widget: {
-                    name: 'text',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
             },
             comuna: {
+                widget: 'text',
                 name: 'comuna',
                 label: 'Comuna',
-                widget: {
-                    name: 'text',
-                    attributes: {
-                        class: 'form-control',
-                    },
-                }
             },
         },
     }, {
