@@ -197,6 +197,7 @@
             first_radio: 'Primer radio',
             second_radio: 'Segundo radio',
         },
+        value: 'second_radio',
         help_text: 'Lista de radios estándar.',
     }) }}
     {{ form_row({
@@ -363,6 +364,11 @@
                 description : 'Description 4',
             },
         ],
+        value: [
+            2,
+            4,
+        ],
+        help_text: 'Table checkboxes mostrando la columna con el ID en la tabla.',
     }) }}
     {{ form_row({
         widget: 'table_radios',
@@ -376,11 +382,6 @@
             'Option 2',
             'Option 3',
         ],
-        options: {
-            'option_1': 'Option 1',
-            'option_2': 'Option 2',
-            'option_3': 'Option 3',
-        },
         rows: [
             {
                 id: 1,
@@ -403,6 +404,16 @@
                 description : 'Description 4',
             },
         ],
+        choices: [
+            'option_1',
+            'option_2',
+            'option_3',
+        ],
+        value: {
+            '1': 'option_2',
+            '2': 'option_1',
+            '4': 'option_3',
+        },
     }) }}
     {{ form_csrf({
         csrf_token: 'abc123',
